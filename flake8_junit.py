@@ -26,7 +26,7 @@ import re
 __all__ = ["AssertChecker"]
 __version__ = "0.1.0"
 
-JUNIT_ASSERT = re.compile("^assert[A-Z].+$")
+JUNIT_ASSERT = re.compile(r"^assert[A-Z]\w+$")
 
 
 class AssertChecker:
