@@ -1,0 +1,73 @@
+[build-system]
+requires = ["poetry-core>=1.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "flake8-junit"
+version = "0.1.0"
+description = "JUnit assert statement checker plugin for flake8"
+readme = "README.md"
+
+license = "MIT"
+
+authors = [
+    "Pablo Marti Gamboa <pablo@cointracker.io>"
+]
+
+repository = "https://github.com/coin-tracker/flake8-junit"
+homepage = "https://github.com/coin-tracker/flake8-junit"
+keywords = [
+  "flake8",
+  "plugin",
+  "linting",
+  "junit",
+  "code quality"
+]
+
+classifiers = [
+  'Development Status :: 3 - Alpha',
+  'Environment :: Console',
+  'Framework :: Flake8',
+  'Intended Audience :: Developers',
+  'License :: OSI Approved :: MIT License',
+  'Operating System :: OS Independent',
+  'Programming Language :: Python',
+  'Programming Language :: Python :: 3',
+  'Topic :: Software Development :: Libraries :: Python Modules',
+  'Topic :: Software Development :: Quality Assurance',
+]
+
+
+include = ["pyproject.toml", "flake8_junit.py", "LICENCE"]
+
+[tool.poetry.plugins."flake8.extension"]
+J10 = "flake8_junit:AssertChecker"
+
+[tool.poetry.dependencies]
+python = ">=3.7"
+"flake8" = ">=3.0"
+pycodestyle = "*"
+
+[tool.poetry.dev-dependencies]
+black = { version = "^22.6.0" }
+pytest = "*"
+
+[tool.black]
+line-length = 90
+target-version = ['py36', 'py37', 'py38', 'py39']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+skip-numeric-underscore-normalization = true
