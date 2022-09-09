@@ -24,7 +24,7 @@ import ast
 import re
 
 __all__ = ["AssertChecker"]
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 JUNIT_ASSERT = re.compile(r"^assert[A-Z]\w+$")
 
